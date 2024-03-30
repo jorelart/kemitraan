@@ -82,7 +82,7 @@ $partner = json_decode($response, true);
 
                                         <div class="card mb-3">
                                             <img src="img/valid.png" class="card-img-top" alt="valid">
-                                            <div class="card-body"
+                                            <div class="card-body">
 
                                                 <table class="table">
                                                     <tbody>
@@ -121,8 +121,6 @@ $partner = json_decode($response, true);
                                                         </tr>
                                                     </tbody>
                                                 </table>
-
-                                                <!-- <p class="card-text text-center"><small class="text-muted">(c) PT. Jaringanku Sarana Nusantara 2023</small></p> -->
                                             </div>
                                         </div>
 
