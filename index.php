@@ -81,9 +81,8 @@ $partner = json_decode($response, true);
 
 
                                         <div class="card mb-3">
-                                            <img src="/partner/img/valid.png" class="card-img-top" alt="valid">
-                                            <div class="card-body">
-                                                <!--<h3 class="card-title"><?= $dt['nama_usaha'] . ' ' . $dt['no_pkr']; ?></h3>-->
+                                            <img src="/img/valid.png" class="card-img-top" alt="valid">
+                                            <div class="card-body"
 
                                                 <table class="table">
                                                     <tbody>
@@ -154,7 +153,7 @@ $partner = json_decode($response, true);
                                         </div>
 
                                         <div class="maintenance-img">
-                                            <img src="/partner/img/alert.png" width="30%" alt="" class="img-fluid mx-auto d-block">
+                                            <img src="/img/alert.png" width="30%" alt="" class="img-fluid mx-auto d-block">
                                         </div>
                                         <h3 class="mt-4">Dokumen Tidak Valid</h3>
                                         <p>Dokumen ini Tidak ditemukan atau tidak lagi terdaftar di <b>PT. Jaringanku Sarana Nusantara</b></p>
