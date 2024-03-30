@@ -1,0 +1,6 @@
+Header add Access-Control-Allow-Origin "*"
+Header add Access-Control-Allow-Methods: "GET,POST,OPTIONS,DELETE,PUT"
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ /mitra/index.php?id=$1 [L]
