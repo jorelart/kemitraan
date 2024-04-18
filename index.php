@@ -2,7 +2,6 @@
 
 $pkr         = strip_tags($_GET['id']);
 $url        = "https://noc.jsn.net.id/gateway/api/partner/" . $pkr;
-// $url        = "127.0.0.1:8000/api/partner/" . $pkr;
 $client     = curl_init($url);
 curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($client);
@@ -16,11 +15,8 @@ $partner = json_decode($response, true);
 <head>
 
     <meta charset="utf-8">
-    <!--meta title dinamic-->
     <?php if (!empty($partner)) : ?>
-        <?php foreach ($partner as $dt) : ?>
-            <title>Dokumen Valid | PT. Jaringanku Sarana Nusantara</title>
-        <?php endforeach; ?>
+        <title>Dokumen Valid | PT. Jaringanku Sarana Nusantara</title>
     <?php else : ?>
         <title>Dokumen Tidak Valid | PT. Jaringanku Sarana Nusantara</title>
     <?php endif; ?>
@@ -40,10 +36,7 @@ $partner = json_decode($response, true);
 </head>
 
 <body data-sidebar="dark">
-
-    <!-- Begin page -->
     <div id="layout-wrapper">
-
         <div>
             <div class="">
                 <?php if (!empty($partner)) : ?>
@@ -54,7 +47,6 @@ $partner = json_decode($response, true);
                                 <div class="col-10">
                                     <div class="home-wrapper mt-5">
                                         <?php if ($partner['status'] == 'Y') : ?>
-                                            <!--Notification-->
                                             <div class="col alert alert-success alert-dismissible fade show" role="alert">
                                                 <strong>Valid!</strong> Dokumen ini valid dan terdaftar di dalam database <strong>PT. Jaringanku Sarana Nusantara!</strong>.
                                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -116,16 +108,11 @@ $partner = json_decode($response, true);
                     </section>
 
                 <?php else : ?>
-
-                    <!--Jika id tidak ditemukan-->
-
                     <section class="my-5">
                         <div class="">
                             <div class="row justify-content-center">
                                 <div class="col-10 text-center">
                                     <div class="home-wrapper mt-5">
-
-                                        <!--Notification-->
                                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                             <strong>Peringatan!</strong> Dokumen <strong>Tidak ditemukan di database <strong>PT. Jaringanku Sarana Nusantara</strong></strong>.
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -175,7 +162,6 @@ $partner = json_decode($response, true);
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- end row -->
                                     </div>
                                 </div>
                             </div>
@@ -185,7 +171,6 @@ $partner = json_decode($response, true);
                 <?php endif; ?>
 
             </div>
-            <!-- Footer -->
             <footer class="footer" style="left:0">
                 <div class="container-fluid">
                     <div class="row">
@@ -199,7 +184,6 @@ $partner = json_decode($response, true);
             </footer>
         </div>
     </div>
-    <!-- JAVASCRIPT -->
     <script src="https://noc.jsn.net.id/gateway/libs/jquery/jquery.min.js"></script>
     <script src="https://noc.jsn.net.id/gateway/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
