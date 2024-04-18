@@ -8,7 +8,6 @@ curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($client);
 $partner = json_decode($response, true);
 
-// var_dump($partner['region']);
 ?>
 
 <!doctype html>
@@ -30,8 +29,6 @@ $partner = json_decode($response, true);
     <meta content="Jorel" name="author">
     <!-- App favicon -->
     <link rel="shortcut icon" href="https://noc.jsn.net.id/gateway/images/favicon.ico">
-
-
     <!-- Bootstrap Css -->
     <link href="https://noc.jsn.net.id/gateway/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
     <!-- Icons Css -->
@@ -47,19 +44,8 @@ $partner = json_decode($response, true);
     <!-- Begin page -->
     <div id="layout-wrapper">
 
-
-
-        <!-- ============================================================== -->
-        <!-- Start right Content here -->
-        <!-- ============================================================== -->
         <div>
-
-            <!--<div class="page-content">-->
             <div class="">
-
-
-
-
                 <?php if (!empty($partner)) : ?>
 
                     <section class="my-5">
@@ -118,22 +104,16 @@ $partner = json_decode($response, true);
                                                         <tr>
                                                             <th scope="row">Status Kepartneran</th>
                                                             <td><?= ($partner['status'] == 'Y' ? " Aktif sampai " . date('d M Y', strtotime($partner['kontrak'] . '+' . $partner['masa_kontrak'] . 'year')) : " Nonaktif"); ?></td>
-
                                                         </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
                                         </div>
-
-
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </section>
-
-
-
 
                 <?php else : ?>
 
@@ -217,14 +197,8 @@ $partner = json_decode($response, true);
                     </div>
                 </div>
             </footer>
-
         </div>
-        <!-- end main content-->
-
     </div>
-    <!-- END layout-wrapper -->
-
-
     <!-- JAVASCRIPT -->
     <script src="https://noc.jsn.net.id/gateway/libs/jquery/jquery.min.js"></script>
     <script src="https://noc.jsn.net.id/gateway/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
