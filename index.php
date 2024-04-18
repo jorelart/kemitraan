@@ -1,7 +1,8 @@
 <?php
 
 $pkr         = strip_tags($_GET['id']);
-$url        = "127.0.0.1:8000/api/partner/" . $pkr;
+$url        = "https://noc.jsn.net.id/gateway/api/partner/" . $pkr;
+// $url        = "127.0.0.1:8000/api/partner/" . $pkr;
 $client     = curl_init($url);
 curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($client);
