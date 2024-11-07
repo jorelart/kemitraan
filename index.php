@@ -75,7 +75,7 @@ if (str_contains($pkr, 'JSN')) {
 
 
                                             <div class="card mb-3">
-                                                <img src="https://www.jsn.net.id/mitra/img/valid.png" class="card-img-top" alt="valid">
+                                                <!-- <img src="https://www.jsn.net.id/mitra/img/valid.png" class="card-img-top" alt="valid"> -->
                                                 <div class="card-body">
 
                                                     <table class="table">
