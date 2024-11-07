@@ -1,6 +1,20 @@
 <?php
-
 $pkr         = strip_tags($_GET['id']);
+
+if(str_contains($pkr, 'JSN')){
+  $url        = "https://noc.jsn.net.id/gateway/api/partner/" . $pkr;
+$client     = curl_init($url);
+curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($client);
+$partner = json_decode($response, true);
+$urls = "https://jsn.net.id/mitra/".$partner['hkey'];
+?>
+<script>
+setTimeout(function (){ window.location.href= '<?php echo $urls; ?>';},500);
+</script>
+<?php
+}
+else {
 $url        = "https://noc.jsn.net.id/gateway/api/partner/" . $pkr;
 $client     = curl_init($url);
 curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
@@ -26,11 +40,11 @@ $partner = json_decode($response, true);
     <!-- App favicon -->
     <link rel="shortcut icon" href="https://noc.jsn.net.id/gateway/images/favicon.ico">
     <!-- Bootstrap Css -->
-    <link href="https://noc.jsn.net.id/gateway/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+    <link href="https://jsn.net.id/mitra/libs/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
     <!-- Icons Css -->
-    <link href="https://noc.jsn.net.id/gateway/css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="https://jsn.net.id/mitra/libs/icons.min.css" rel="stylesheet" type="text/css">
     <!-- App Css-->
-    <link href="https://noc.jsn.net.id/gateway/css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+    <link href="https://jsn.net.id/mitra/libs/app.min.css" id="app-style" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
@@ -60,7 +74,7 @@ $partner = json_decode($response, true);
 
 
                                         <div class="card mb-3">
-                                            <img src="img/valid.png" class="card-img-top" alt="valid">
+                                            <img src="https://www.jsn.net.id/mitra/img/valid.png" class="card-img-top" alt="valid">
                                             <div class="card-body">
 
                                                 <table class="table">
@@ -119,7 +133,7 @@ $partner = json_decode($response, true);
                                         </div>
 
                                         <div class="maintenance-img">
-                                            <img src="img/alert.png" width="30%" alt="" class="img-fluid mx-auto d-block">
+                                            <img src="https://www.jsn.net.id/mitra/img/alert.png" width="30%" alt="" class="img-fluid mx-auto d-block">
                                         </div>
                                         <h3 class="mt-4">Dokumen Tidak Valid</h3>
                                         <p>Dokumen ini Tidak ditemukan atau tidak lagi terdaftar di <b>PT. Jaringanku Sarana Nusantara</b></p>
@@ -184,8 +198,9 @@ $partner = json_decode($response, true);
             </footer>
         </div>
     </div>
-    <script src="https://noc.jsn.net.id/gateway/libs/jquery/jquery.min.js"></script>
-    <script src="https://noc.jsn.net.id/gateway/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://jsn.net.id/mitra/libs/jquery.min.js"></script>
+    <script src="https://jsn.net.id/mitra/libs/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
+<?php }?>
