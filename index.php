@@ -50,6 +50,50 @@ if (str_contains($pkr, 'JSN')) {
 
     </head>
 
+    <style>
+        .stamp {
+            position: absolute;
+            display: block;
+            width: 100%;
+            z-index: 1;
+            opacity: .1;
+            font-size: 100px;
+            font-weight: bold;
+            text-align: center;
+            line-height: normal;
+            /* border: 2px solid #000; */
+            /* color: green; */
+            padding: 0 30px;
+            /* transform: rotate(-25deg); */
+            /* left: 40vw; */
+            top: 20vh;
+            margin: 15px auto;
+        }
+
+        .stamp span {
+            border: 2px solid #000;
+            padding: 0 10px;
+            border-radius: 10px;
+            transform: rotate(-20deg);
+        }
+
+        span.aktif {
+            color: green;
+            border-color: green;
+        }
+
+        span.nonaktif {
+            color: red;
+            border-color: red;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .stamp span {
+                font-size: 60px;
+            }
+        }
+    </style>
+
     <body data-sidebar="dark">
         <div id="layout-wrapper">
             <div>
@@ -57,6 +101,13 @@ if (str_contains($pkr, 'JSN')) {
                     <?php if (!empty($partner)) : ?>
 
                         <section class="my-5">
+
+                            <div class="stamp">
+                                <span class="<?= $partner['status'] == 'Y' ? 'aktif' : 'nonaktif' ?>">
+                                    <?= $partner['status'] == 'Y' ? "VALID AKTIF" : 'NON AKTIF' ?>
+                                </span>
+                            </div>
+
                             <div class="">
                                 <div class="row justify-content-center">
                                     <div class="col-10">
@@ -67,7 +118,7 @@ if (str_contains($pkr, 'JSN')) {
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                                 </div>
                                             <?php else : ?>
-                                                <div class="col alert alert-warning alert-dismissible fade show" role="alert">
+                                                <div class="col alert alert-danger alert-dismissible fade show" role="alert">
                                                     <strong>Peringatan!</strong> Dokumen ini terdaftar di dalam database tapi status kemitraan <strong>Tidak Aktif</strong>.
                                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                                 </div>
@@ -98,19 +149,21 @@ if (str_contains($pkr, 'JSN')) {
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">Cabang Induk</th>
-                                                                <td><?= $partner['region']['kota']; ?></td>
+                                                                <td>JSN <?= $partner['region']['kota']; ?></td>
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">Daerah Pelayanan</th>
-                                                                <td><?= $partner['kabupaten']; ?></td>
+                                                                <td><?= $partner['cities']['name']; ?></td>
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">Bergabung Sejak</th>
                                                                 <td><?= date('d M Y', strtotime($partner['bergabung'])); ?></td>
                                                             </tr>
                                                             <tr>
-                                                                <th scope="row">Status Kepartneran</th>
-                                                                <td><?= ($partner['status'] == 'Y' ? " Aktif sampai " . date('d M Y', strtotime($partner['kontrak'] . '+' . $partner['masa_kontrak'] . 'year')) : " Nonaktif"); ?></td>
+                                                                <th scope="row">Status Kemitraan</th>
+                                                                <td>
+                                                                    <?= ($partner['status'] == 'Y' ? " Aktif sampai " . date('d M Y', strtotime($partner['kontrak'] . '+' . $partner['masa_kontrak'] . 'year')) : "<span class='alert alert-danger'>Nonaktif</span>"); ?>
+                                                                </td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
