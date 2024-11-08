@@ -109,9 +109,124 @@ if (str_contains($pkr, 'JSN')) {
                 font-size: 60px;
             }
         }
+
+        .preloader {
+            position: fixed;
+            z-index: 10;
+            top: 0;
+            left: 0;
+            display: none;
+            height: 100vh;
+            width: 100%;
+            background-color: #fff;
+        }
+
+        .preloader.show {
+            display: block;
+        }
+
+        @keyframes loader {
+
+            0%,
+            10%,
+            100% {
+                width: 80px;
+                height: 80px;
+            }
+
+            65% {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        @keyframes loaderBlock {
+
+            0%,
+            30% {
+                transform: rotate(0);
+            }
+
+            55% {
+                background-color: #F37272;
+            }
+
+            100% {
+                transform: rotate(90deg);
+
+            }
+        }
+
+        @keyframes loaderBlockInverse {
+
+            0%,
+            20% {
+                transform: rotate(0);
+            }
+
+            55% {
+                background-color: #F37272;
+            }
+
+            100% {
+                transform: rotate(-90deg);
+            }
+        }
+
+        .loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80px;
+            height: 80px;
+            transform: translate(-50%, -50%) rotate(45deg) translate3d(0, 0, 0);
+            animation: loader 1.2s infinite ease-in-out;
+
+            span {
+                position: absolute;
+                display: block;
+                width: 40px;
+                height: 40px;
+                background-color: #EE4040;
+                animation: loaderBlock 1.2s infinite ease-in-out both;
+
+                &:nth-child(1) {
+                    top: 0;
+                    left: 0;
+                }
+
+                &:nth-child(2) {
+                    top: 0;
+                    right: 0;
+                    animation: loaderBlockInverse 1.2s infinite ease-in-out both;
+                }
+
+                &:nth-child(3) {
+                    bottom: 0;
+                    left: 0;
+                    animation: loaderBlockInverse 1.2s infinite ease-in-out both;
+                }
+
+                &:nth-child(4) {
+                    bottom: 0;
+                    right: 0;
+                }
+            }
+        }
     </style>
 
     <body data-sidebar="dark">
+
+
+        <div class="preloader">
+            <div class="loader">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
         <div id="layout-wrapper">
             <div>
                 <div class="">
@@ -354,12 +469,11 @@ if (str_contains($pkr, 'JSN')) {
         <script>
             // When scan is successful fucntion will produce data
             function onScanSuccess(qrCodeMessage) {
-                //   document.getElementById("result").innerHTML =
-                //     '<span class="result">' + qrCodeMessage + "</span>";
-
+                document.querySelector('.preloader').classList.add('show');
                 setTimeout(function() {
+                    document.querySelector('.preloader').classList.remove('show');
                     window.location.href = qrCodeMessage;
-                }, 500);
+                }, 100);
             }
 
             // When scan is unsuccessful fucntion will produce error message
