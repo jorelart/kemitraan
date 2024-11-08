@@ -470,10 +470,9 @@ if (str_contains($pkr, 'JSN')) {
             // When scan is successful fucntion will produce data
             function onScanSuccess(qrCodeMessage) {
                 document.querySelector('.preloader').classList.add('show');
-                setTimeout(function() {
-                    // document.querySelector('.preloader').classList.remove('show');
-                    window.location.href = qrCodeMessage;
-                }, 500);
+                // setTimeout(function() {
+                //     window.location.href = qrCodeMessage;
+                // }, 500);
             }
 
             // When scan is unsuccessful fucntion will produce error message
