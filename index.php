@@ -406,9 +406,9 @@ if (str_contains($pkr, 'JSN')) {
                                                     <!-- <div class="col-sm-2"> -->
                                                     <div class="button-items">
                                                         <button type="submit" class="btn-lg btn-primary waves-effect waves-light">Cek Now</button>
-                                                        <button type="button" class="btn-lg btn-outline-success waves-effect" data-bs-toggle="modal" data-bs-target=".bs-example-modal-center">
+                                                        <!-- <button type="button" class="btn-lg btn-outline-success waves-effect" data-bs-toggle="modal" data-bs-target=".bs-example-modal-center">
                                                             <i class="mdi mdi mdi-qrcode-scan"></i>
-                                                        </button>
+                                                        </button> -->
                                                     </div>
                                                     <!-- </div> -->
                                                 </div>
