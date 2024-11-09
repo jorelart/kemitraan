@@ -12,7 +12,7 @@ if (str_contains($pkr, 'JSN')) {
     // var_dump(null != $partner);
 
     $base_urls = "https://jsn.net.id/mitra/";
-    $key = null != $partner ? $partner['hkey'] : "";
+    $key = null != $partner ? $partner['hkey'] : "not-found";
     $urls = $base_urls . $key;
 
 ?>
@@ -392,7 +392,7 @@ if (str_contains($pkr, 'JSN')) {
                                             <h3 class="mt-4">Cek Validitas Perjanjian Kerjasama (PKR) JSN</h3>
                                             <p>Masukan Nomor/Serial Perjanjian Kerjasama (PKR) pada dokumen resmi yang dikeluarkan oleh JSN.</p>
 
-                                            <form method="post">
+                                            <form method="post" id="checkPkr">
                                                 <div class="row my-2 justify-content-center">
                                                     <div class="col-lg-8">
                                                         <div class="input-group">
@@ -405,10 +405,10 @@ if (str_contains($pkr, 'JSN')) {
                                                 <div class="row mt-3">
                                                     <!-- <div class="col-sm-2"> -->
                                                     <div class="button-items">
-                                                        <button type="submit" class="btn-lg btn-primary waves-effect waves-light">Check Now</button>
-                                                        <!-- <button type="button" class="btn-lg btn-outline-success waves-effect" data-bs-toggle="modal" data-bs-target=".bs-example-modal-center">
+                                                        <button type="submit" class="btn-lg btn-primary waves-effect waves-light">PROCESS</button>
+                                                        <button type="button" class="btn-lg btn-outline-success waves-effect" data-bs-toggle="modal" data-bs-target=".bs-example-modal-center">
                                                             <i class="mdi mdi mdi-qrcode-scan"></i>
-                                                        </button> -->
+                                                        </button>
                                                     </div>
                                                     <!-- </div> -->
                                                 </div>
@@ -453,6 +453,7 @@ if (str_contains($pkr, 'JSN')) {
                     </div>
                     <div class="modal-body">
 
+                        <p>Jika tidak berfungsi, silahkan lakukan pengecekan manual nomor PKR</p>
                         <div id="reader"></div>
 
                     </div>
@@ -488,6 +489,22 @@ if (str_contains($pkr, 'JSN')) {
 
             // in
             html5QrCodeScanner.render(onScanSuccess, onScanError);
+
+            function checkPkr() {
+                var form = document.getElementById("checkPkr");
+                var preloader = document.querySelector('.preloader');
+                form.addEventListener("submit", function(e) {
+                    // e.preventDefault();
+                    preloader.classList.add("show");
+                    // alert(e)
+
+                    setTimeout(function() {
+                        preloader.classList.remove("show");
+
+                    }, 900);
+                })
+            }
+            checkPkr();
         </script>
 
     </body>
