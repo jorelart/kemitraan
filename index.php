@@ -393,8 +393,8 @@ if (str_contains($pkr, 'JSN')) {
                                             <p>Masukan Nomor/Serial Perjanjian Kerjasama (PKR) pada dokumen resmi yang dikeluarkan oleh JSN.</p>
 
                                             <form method="post">
-                                                <div class="row m-5 justify-content-center">
-                                                    <div class="col-sm-8">
+                                                <div class="row my-2 justify-content-center">
+                                                    <div class="col-lg-8">
                                                         <div class="input-group">
                                                             <input name="pkr" type="text" class="form-control form-control-lg" placeholder="Masukan Nomor PKR" required>
                                                         </div>
@@ -405,7 +405,7 @@ if (str_contains($pkr, 'JSN')) {
                                                 <div class="row mt-3">
                                                     <!-- <div class="col-sm-2"> -->
                                                     <div class="button-items">
-                                                        <button type="submit" class="btn-lg btn-primary waves-effect waves-light">Cek Now</button>
+                                                        <button type="submit" class="btn-lg btn-primary waves-effect waves-light">Check Now</button>
                                                         <!-- <button type="button" class="btn-lg btn-outline-success waves-effect" data-bs-toggle="modal" data-bs-target=".bs-example-modal-center">
                                                             <i class="mdi mdi mdi-qrcode-scan"></i>
                                                         </button> -->
